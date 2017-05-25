@@ -13,23 +13,23 @@ export default class App extends Component {
     constructor() {
         super();
         // The below code will be useful if you want to use your redux store as the one source of truth
-        // this.state = store.getState();
-        this.state =  {
-            selectedMammal : "Tiger",
-            selectedBird : "Eagle",
-            selectedFish : "Seahorse",
-            mammals: ['Tiger', 'Panda', 'Pig'],
-            birds: ['Eagle', 'Flamingo', 'Penguin'],
-            fish: [ 'Seahorse', 'Octopus', 'Stingray']
-        };
+        this.state = store.getState();
+        // this.state =  {
+        //     selectedMammal : "Tiger",
+        //     selectedBird : "Eagle",
+        //     selectedFish : "Seahorse",
+        //     mammals: ['Tiger', 'Panda', 'Pig'],
+        //     birds: ['Eagle', 'Flamingo', 'Penguin'],
+        //     fish: [ 'Seahorse', 'Octopus', 'Stingray']
+        // };
     }
 
     // The below code will be useful if you want to use your redux store as the one source of state and truth
-    // componentDidMount() {
-    //     store.subscribe(() => {
-    //         this.setState(store.getState());
-    //     });
-    // }
+    componentDidMount() {
+        store.subscribe(() => {
+            this.setState(store.getState());
+        });
+    }
 
     render() {
         const { selectedMammal, selectedBird, selectedFish, mammals, birds, fish } = this.state;

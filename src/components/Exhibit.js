@@ -5,13 +5,21 @@ import Cage from './Cage';
 
 export default class Exhibit extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = { selectedAnimal: props.selectedAnimal }
+    this.setAnimal = this.setAnimal.bind(this);
+  }
+
+  setAnimal(animal) {
+  	this.setState({selectedAnimal: animal})
   }
 
   render () {
   	return (
 	    <div className="exhibit">
+	    <Cage selectedAnimal={this.state.selectedAnimal} />
+	    <AnimalSelect animals={this.props.animals} submitAnimal={this.setAnimal} />
 	    </div>
   		)
   }
