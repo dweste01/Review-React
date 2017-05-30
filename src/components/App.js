@@ -5,8 +5,8 @@ This file is NOT necessary to edit for the test specs
 import React, {Component} from 'react';
 import  Exhibit from './Exhibit';
 // The below code will be useful if you want to use your redux store as the one source of state and truth
-// import store from '../store';
-// import {setMammal, setBird, setFish} from '../store/action-creators/actions';
+import store from '../store';
+import {setMammal, setBird, setFish} from '../store/action-creators/actions';
 
 export default class App extends Component {
 
